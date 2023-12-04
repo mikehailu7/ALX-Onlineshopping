@@ -32,6 +32,14 @@
             <input
               class="form-control"
               type="text"
+              name="Country"
+              placeholder="Country.."
+            />
+          </div>
+          <div class="form-field">
+            <input
+              class="form-control"
+              type="text"
               name="address"
               placeholder="Address.."
             />
@@ -56,14 +64,6 @@
             <input
               class="form-control"
               type="text"
-              name="zipcode"
-              placeholder="Zip code.."
-            />
-          </div>
-          <div class="form-field">
-            <input
-              class="form-control"
-              type="text"
               name="country"
               placeholder="Zip code.."
             />
@@ -73,7 +73,7 @@
         <hr />
         <input
           id="form-button"
-          class="btn btn-success btn-block"
+          class="btn btn-outline-secondary btn-block"
           type="submit"
           value="Continue"
         />
@@ -88,7 +88,7 @@
 
   <div class="col-lg-6">
     <div class="box-element">
-      <a class="btn btn-outline-dark" href="{% url 'carts' %}"
+      <a class="btn btn-outline-secondary" href="{% url 'carts' %}"
         >&#x2190; Back to Cart</a
       >
       <hr />
