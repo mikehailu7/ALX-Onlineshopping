@@ -5,7 +5,7 @@
 <div class="row">
   {% for product in products %}
   <div class="col-lg-4">
-    <img class="thumbnail" src="{% static 'images/img2.png' %}" /> 
+    <img class="thumbnail" src="{{product.imageURL}}" /> 
     <div class="box-element product">
       <h6><strong>{{ product.name }}</strong></h6>
       <hr />
@@ -13,7 +13,7 @@
       <button class="btn btn-outline-secondary add-btn">Add to Cart</button>
       <a class="btn btn-outline-secondary" href="#">View</a>
       <h4 style="display: inline-block; float: right">
-        <strong>{{ product.price }} ETB</strong>
+        <strong>{{ product.price|floatformat:2 }} ETB</strong>
       </h4>
     </div>
   </div>
