@@ -17,6 +17,51 @@
       name="viewport"
       content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1"
     />
+    
+  <script type= "text/javascript"> 
+        var user = '{{request.user}}'
+
+      function getToken(name) {
+          var cookieValue = null;
+            if (document.cookie && document.cookie !== '') {
+                var cookies = document.cookie.split(';');
+                for (var i = 0; i < cookies.length; i++) {
+                    var cookie = cookies[i].trim();
+                if (cookie.substring(0, name.length + 1) === (name + '=')) {
+                    cookieValue = decodeURIComponenet(cookie.substring(name.length + 1));
+                    break;
+                }
+              }
+
+          }
+          return cookieValue;
+        }
+
+    var csrftoken = getToken('csrftoken');
+
+    function getCookie(name){
+      var cookieArr = document.cookie.split(";");
+      for(var i = 0; i < cookieArr.length; i++){
+        var cookiepair = cookieArr[i].split("=");
+
+        if(name == cookiepair[0].trim()){
+          return decodeURIComponent(cookiepair[1]);
+        }
+      }
+      return null;
+    }
+    var cart = JSON.parse(getCookie('cart'))
+    if (cart == undefined){
+      cart = {}
+      console.log('cart created', cart)
+      document.cookie = 'cart=' + JSON.stringify(cart) +";domain=;path="
+
+    }
+    console.log('cart:', cart)
+
+    
+    </script>
+
   </head>
 
   <body>
@@ -48,7 +93,7 @@
           <a href="{% url 'carts' %}">
             <img id="cart-icon" src="{% static 'images/img1.png' %}" />
           </a>
-          <p id="cart-total">0</p>
+          <p id="cart-total">{{cartItems}}</p>
         </div>
       </div>
     </nav>
