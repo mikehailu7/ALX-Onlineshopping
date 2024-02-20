@@ -155,9 +155,6 @@
         shippingInfo.address = form.address.value
         shippingInfo.email = form.email.value
         
-
-
- 
       }
       if(shipping != 'AnonymousUser'){
         userformData.name = form.name.value
@@ -178,9 +175,12 @@
     .then((data) => {
       console.log('success:', data);
       alert('transaction completed');
-      window.location.href = "(% url 'store' %)"
+
+      cart = {}
+      document.cookie = 'cart=' + JSON.stringify(cart) + ";domain=;path=/"
+          window.location.href = "(% url 'store' %)"
     })
-    }
+  }
     
 </script>
 {% endblock content %}
