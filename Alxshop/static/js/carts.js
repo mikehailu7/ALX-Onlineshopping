@@ -21,24 +21,24 @@ function addCookieItem(productId, action){
     console.log('user is not authenticated')
 
     if (action == 'add'){
-        if (cart[productId] == undefined){
-            cart[productId] = {'quantity':1}
+        if (carts[productId] == undefined){
+            carts[productId] = {'quantity':1}
         }else{
-            cart[productId]['quantity'] += 1
+            carts[productId]['quantity'] += 1
         }
         
 
 
     }
     if (action == 'remove'){
-        cart[productId]['quantity'] -= 1
-        if (cart[productId]['quantity'] <= 0){
+        carts[productId]['quantity'] -= 1
+        if (carts[productId]['quantity'] <= 0){
             console.log('item shoulld be deleted')
-            delete cart[productId]
+            delete carts[productId]
         }
     }
-    console.log('cart:', cart)
-    document.cookie = 'cart=' + JSON.stringify(cart) + ";domain=;path=/"
+    console.log('carts:', carts)
+    document.cookie = 'carts=' + JSON.stringify(carts) + ";domain=;path=/"
     location.reload()
 }
 function updateUserOrder(productId, action) {
