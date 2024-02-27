@@ -64,7 +64,7 @@
 
   </head>
 
-  <body>
+  <body style="padding: 0px; margin: 0px;">
     <nav class="navbar navbar-expand-lg navbar-dark bg-light">
       <a class="navbar-brand" href="{% url 'storage' %}"> Alx-Mall</a>
       <button
@@ -116,5 +116,43 @@
       integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
       crossorigin="anonymous"
     ></script>
+    
+  <div style="padding-top: 50px; padding-bottom: 0px">
+  <footer class="text-center text-white" style="background-color: #ab8c5e!important;">
+    <div class="container-fluid p-5 pb-1"style="padding-top: 50px; padding-bottom: 0px; padding-right: 50px;" >
+      <section class="">
+        <p class="d-flex justify-content-center align-items-center">
+          <span class="me-3">This is our ALx final foundation stage portfolio project.</span>
+        </p>
+        <div>
+        <p class="d-flex justify-content-center align-items-center">
+          <span class="me-3" style="flex:column">Contact US.</span>
+          <a href= >
+            <img id="cart-icon" src="{% static 'images/email.png' %}" />
+          
+          mikehailu7@gmail.com</a>
+          <a href= >
+            <img id="cart-icon" src="{% static 'images/phone.jpg' %}" />
+          
+          +251933404415</a>
+
+           <a href="{% url 'storage' %}">
+            <img id="cart-icon" src="{% static 'images/home.png' %}" /> Return Home
+          </a>
+        </p>
+
+
+
+      </section>
+    </div>
+    <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2);">
+      © 2024 Copyright:
+      <a class="text-white" >Authors: Mikias Hailu and Yared Tsgie</a>
+    </div>
+  </footer>
+</div>
   </body>
+
+
+
 </html>

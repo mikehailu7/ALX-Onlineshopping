@@ -1,3 +1,5 @@
+"""URL for our views"""
+
 from django.urls import path
 
 from . import views
@@ -8,6 +10,5 @@ urlpatterns = [
     path("carts/", views.carts, name="carts"),
     path("buy/", views.buy, name="buy"),
     path("update_item/", views.updateItem, name="update_item"),
-    path("update_item/", views.processOrder, name="update_item")
+    path("update_item/", views.processOrder, name="update_item"),
 ]
-
