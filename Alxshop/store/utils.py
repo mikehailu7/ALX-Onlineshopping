@@ -4,24 +4,24 @@ from .models import *
 
 def cookieCart(request):
     try:
-        cart = json.loads(request.COOKIES["cart"])
+        carts = json.loads(request.COOKIES["carts"])
     except:
-        cart = {}
+        carts = {}
 
-    print("Cart:", cart)
+    print("Carts:", carts)
     items = []
     order = {"get_carts_total": 0, "get_carts_items": 0, "shipping": False}
     cartItems = order["get_carts_items"]
 
-    for i in cart:
+    for i in carts:
         try:
-            cartItems += cart[i]["quantity"]
+            cartItems += carts[i]["quantity"]
 
             product = Product.objects.get(id=i)
-            total = product.price * cart[i]["quantity"]
+            total = product.price * carts[i]["quantity"]
 
             order["get_carts_total"] += total
-            order["get_carts_items"] += cart[i]["quantity"]
+            order["get_carts_items"] += carts[i]["quantity"]
 
             item = {
                 "product": {
@@ -30,9 +30,9 @@ def cookieCart(request):
                     "price": product.price,
                     "imageURL": product.imageURL,
                 },
-                "quantity": cart[i]["quantity"],
+                "quantity": carts[i]["quantity"],
                 "get_total": total,
-            }
+                }
             items.append(item)
 
             if product.digital == False:
@@ -50,8 +50,8 @@ def cartData(request):
         items = order.orderitem_set.all()
         cartItems = order.get_carts_items
     else:
-        cookieData = cookieCart( request)
-        cartItems = cookieData["cartItems"]
+        cookieData = cookieCart(request)
+        cartItems = cookieData["cartItems"] 
         order = cookieData["order"]
         items = cookieData["items"]
     return {"cartItems": cartItems, "order": order, "items": items}

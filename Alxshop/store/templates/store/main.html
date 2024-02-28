@@ -22,20 +22,21 @@
         var user = '{{request.user}}'
 
       function getToken(name) {
-          var cookieValue = null;
-            if (document.cookie && document.cookie !== '') {
-                var cookies = document.cookie.split(';');
-                for (var i = 0; i < cookies.length; i++) {
-                    var cookie = cookies[i].trim();
-                if (cookie.substring(0, name.length + 1) === (name + '=')) {
-                    cookieValue = decodeURIComponenet(cookie.substring(name.length + 1));
-                    break;
+      var cookieValue = null;
+      if (document.cookie && document.cookie !== '') {
+        var cookies = document.cookie.split(';');
+        for (var i = 0; i < cookies.length; i++) {
+            var cookie = cookies[i].trim();
+        if (cookie.substring(0, name.length + 1) === (name + '=')) {
+            cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
+            break;
                 }
-              }
+             }
 
-          }
-          return cookieValue;
         }
+        
+        return cookieValue;
+      }
 
     var csrftoken = getToken('csrftoken');
 
@@ -50,14 +51,14 @@
       }
       return null;
     }
-    var cart = JSON.parse(getCookie('cart'))
-    if (cart == undefined){
-      cart = {}
-      console.log('cart created', cart)
-      document.cookie = 'cart=' + JSON.stringify(cart) +";domain=;path="
+    var carts = JSON.parse(getCookie('carts'))
+    if (carts == undefined){
+      carts = {}
+      console.log('cart created', carts)
+      document.cookie = 'carts=' + JSON.stringify(carts) +";domain=;path="
 
     }
-    console.log('cart:', cart)
+    console.log('carts:', carts)
 
     
     </script>
